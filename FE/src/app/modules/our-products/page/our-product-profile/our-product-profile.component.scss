@@ -1,0 +1,123 @@
+body{
+    background:#f5f5f5;
+    margin-top:20px;}
+/*------- portfolio -------*/
+.project {
+  margin: 15px 0;
+}
+
+.no-gutter .project {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.project-title {
+  font-size: 1.25rem;
+}
+
+.project-skill {
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.06rem;
+}
+
+.project-info-box {
+  margin: 10px 0;
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 5px;  
+}
+
+.project-info-box-right {
+  margin: 10px 0;
+  background-color: #fff;
+  padding: 20px 20px;
+  border-radius: 5px;
+  height: 130px;
+}
+.project-info-box-left {
+  margin: 0px 0;
+  background-color: #fff;
+  padding: 20px 20px;
+  border-radius: 5px;
+  height: 428px;
+}
+.project-info-box-table{
+  margin: 2px 0;
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 5px;
+  height: 400px;
+}
+.no-wrap td, .no-wrap th {
+  white-space: nowrap;
+}
+.table td, .table th {
+  padding: .5678rem .1rem;
+  vertical-align: top;
+  border-top: 1px solid rgba(120,130,140,.13);
+}
+
+.table_ td, .table th {
+  padding: .5678rem .5rem;
+  vertical-align: top;
+  border-top: 0px solid rgba(120,130,140,.13);
+}
+
+
+.font-light {
+  font-weight: 300;
+}
+
+.project-info-box p {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #d5dadb;
+}
+
+.project-info-box p:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.project-info-box p {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #d5dadb;
+}
+
+.bg-orange{
+  background-image: linear-gradient(to right, rgb(248, 182, 2) , rgb(255, 204, 64));
+}
+
+
+.card-small {
+  border-radius: 0;
+  box-shadow: 0 0px 0px 0 rgba(69, 90, 100, 0.08);
+  border: none;
+  margin-bottom: 30px;
+  transition: all 0.5s ease-in-out;
+  
+
+  .card-header-small {
+    background-color: transparent;
+    border-bottom: 1px solid #f1f1f1;
+    // border-bottom: none;
+    padding: 5px 15px;
+    position: relative;
+    border-radius: 5px 5px 0px 0px;
+
+    + .card-block,
+    + .card-body {
+       padding: 10px 0px 5px 0px;
+       border: 1px solid #0479ff;
+
+    }
+  }
+ 
+}
+.text-blue{
+  color:#016891;
+}
+

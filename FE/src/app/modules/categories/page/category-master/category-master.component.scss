@@ -1,0 +1,47 @@
+/* Custom CSS for styling the dropdown */
+.input-group {
+    position: relative;
+    width: 100%;
+  }
+  
+  .form-control:focus {
+    box-shadow: none;
+  }
+  
+  /* Styling for the search input */
+  .input-group input {
+    border-radius: 0;
+    border-width: 0;
+    border-bottom: 1px solid #ccc;
+    padding: 8px 12px;
+  }
+  
+  /* Styling for the dropdown */
+  .select-dropdown {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .select-dropdown option {
+    padding: 8px 12px;
+  }
+  
+  .select-dropdown option:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .card-item {
+    width: 25%; /* Each card takes 50% of the container width */
+    box-sizing: border-box; /* Including padding and border in the width */
+    padding: 10px; /* Adjust as needed */
+  }
+  
+  

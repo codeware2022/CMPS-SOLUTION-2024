@@ -1,0 +1,60 @@
+<div class="container">  
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="well search-result">
+                <div class="input-group">
+                    <input type="text" id="txtSearch" class="form-control" placeholder="Search" [(ngModel)]="txtSearch">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary btn-lg" type="button" (click)="onSearch(txtSearch)">
+                            <i class="feather icon-search"></i>
+                            Search
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>  
+    <div class="row">     
+        <div class="table-responsive table-wrapper">           
+            <table class="table  ">
+                <thead>
+                    <tr>
+                        <td>Id</td>
+                        <td>Distributor Name</td>
+                        <td>Address</td>
+                        <td>Contact No</td>
+                        <td>Email</td>
+                        <td>Remarks</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="tr-height" *ngFor="let item of distributors">
+                        <td >{{item.id}}</td>
+                        <td>{{item.distributorName}}</td>
+                        <td>{{item.address}}</td>
+                        <td>{{item.contactNo}}</td>
+                        <td>{{item.email}}</td>
+                        <td>{{item.remarks}}</td>
+                        <td><button class="btn btn-sm btn-primary m-0" (click)="getMoreInfo(item.id)">More</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="d-flex justify-content-between p-2">
+                <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+                    (pageChange)="pagination()">
+                </ngb-pagination>
+
+                <select class="form-select" style="width: auto" [(ngModel)]="pageSize"
+                    (ngModelChange)="pagination()">
+                    <option [ngValue]="2">2 items per page</option>
+                    <option [ngValue]="4">4 items per page</option>
+                    <option [ngValue]="6">6 items per page</option>
+                </select>
+            </div>
+            <div class="col-md-2 text-right p-0 m-0"><button class="btn btn-sm btn-dark" routerLink="/home/territories/add-distributor"><i class="feather icon-arrow-left"></i> Back</button></div>
+        </div>
+    </div>
+
+</div>

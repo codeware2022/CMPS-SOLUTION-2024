@@ -1,0 +1,35 @@
+<div class="form-group mt-2">
+  <label for="typeahead-input" class="form-label">
+    Search for a {{ searchItem }}:<span *ngIf="isRequired" class="text-danger"
+      >*</span
+    >
+  </label>
+  <div class="input-wrapper">
+    <input
+      id="typeahead-input"
+      type="text"
+      [formControl]="control"
+      (input)="onSearch(control.value)"
+      placeholder="Search..."
+      class="form-control"      
+    />
+    <span class="dropdown-icon" (click)="toggleList()">&#9662;</span>
+  </div>
+  <ul *ngIf="showList && filteredItems.length" class="typeahead-list">
+    <li
+      *ngFor="let item of filteredItems; let i = index"
+      (click)="selectItem(item)"
+      [class.active]="i === selectedIndex"
+      (mouseover)="selectedIndex = i"
+    >
+      {{ item.name }}
+    </li>
+  </ul>
+
+  <div
+    *ngIf="control.invalid && (control.dirty || control.touched)"
+    class="text-danger"
+  >
+    <div *ngIf="control.errors?.required">{{ searchItem }} is required.</div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="form-group">
+  <label for="colorInput" class="form-label">Select Color</label>
+  <div class="input-group">
+    <input
+      type="color"
+      class="form-control"
+      id="colorInput"
+      [(ngModel)]="color"
+      (input)="onColorChange($event)"
+    />
+    <input type="text" class="form-control" [value]="color" readonly />
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div
+  class="icon-button"
+  (mouseenter)="onMouseEnter()"
+  (click)="onClickCategory()"
+>
+  <img [src]="category.icon" [alt]="category.name" />
+  <div class="category-name-box">
+    <span>{{ category.name }}</span>
+  </div>
+  <div
+    class="dropdown-menu"
+    [class.show]="isDropdownVisible"
+    *ngIf="category.subcategories.length > 0"
+    appClickOutside
+    (clickOutside)="onClickOutside()"
+  >
+    <ul>
+      <li
+        *ngFor="let item of category.subcategories"
+        (click)="onSubCategorySelect(item)"
+      >
+        <img
+          [src]="item.icon"
+          alt="{{ item.name }}"
+          class="dropdown-icon-image"
+        />
+        {{ item.name }}
+      </li>
+    </ul>
+  </div>
+</div>

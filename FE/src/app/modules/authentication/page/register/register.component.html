@@ -1,0 +1,97 @@
+<div class="auth-wrapper">
+  <div class="auth-content">
+    <div class="auth-bg">
+      <span class="r"></span>
+      <span class="r s"></span>
+      <span class="r s"></span>
+      <span class="r"></span>
+    </div>
+
+    <div class="card">
+      <div class="card-body text-center">
+        <div class="mb-4">
+          <i class="feather icon-user-plus auth-icon"></i>
+        </div>
+        <app-notification *ngIf="showModal" [isSuccess]="isSuccess" [title]="notificationTitle"
+          [message]="notificationMessage"></app-notification>
+        <form [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="off" action="javascript:">
+          <h3 class="mb-4">Sign up</h3>
+
+          <div class="form-group row mb-3">
+            <div class="col-sm-12">
+              <input formControlName="firstName" type="text" class="form-control is-invalid" placeholder="First Name"
+                [class.is-invalid]="submitted && registerForm.get('firstName')?.errors" />
+              <div *ngIf="submitted" class="invalid-feedback ml-2 text-start">
+                <span *ngIf="registerForm.get('firstName')?.hasError('required')">First name is required</span>
+                <span
+                  *ngIf="registerForm.get('firstName')?.hasError('minlength') || registerForm.get('firstName')?.hasError('maxlength')">First
+                  name must be at least 3 and maximum 15 characters</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row mb-3">
+            <div class="col-sm-12">
+              <input formControlName="lastName" type="text" class="form-control is-invalid" placeholder="Last Name"
+                [class.is-invalid]="submitted && registerForm.get('lastName')?.errors" />
+              <div *ngIf="submitted" class="invalid-feedback ml-2 text-start">
+                <span *ngIf="registerForm.get('lastName')?.hasError('required')">Last name is required</span>
+                <span
+                  *ngIf="registerForm.get('lastName')?.hasError('minlength') || registerForm.get('lastName')?.hasError('maxlength')">Last
+                  name must be at least 3 and maximum 15 characters</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row mb-3">
+            <div class="col-sm-12">
+              <input formControlName="email" type="email" class="form-control is-invalid" placeholder="Email"
+                [class.is-invalid]="submitted && registerForm.get('email')?.errors" />
+              <div *ngIf="submitted" class="invalid-feedback ml-2 text-start">
+                <span *ngIf="registerForm.get('email')?.hasError('required')">Email is required</span>
+                <span *ngIf="registerForm.get('email')?.hasError('pattern')">Invalid email address</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row mb-3">
+            <div class="col-sm-12">
+              <input formControlName="password" type="password" class="form-control is-invalid" placeholder="Password"
+                [class.is-invalid]="submitted && registerForm.get('password')?.errors" />
+              <div *ngIf="submitted" class="invalid-feedback ml-2 text-start">
+                <span *ngIf="registerForm.get('password')?.hasError('required')">Password is required</span>
+                <span
+                  *ngIf="registerForm.get('password')?.hasError('minlength') || registerForm.get('password')?.hasError('maxlength')">Password
+                  must be at least 6 and maximum 15 characters</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-floatin" *ngIf="errorMessages.length > 0">
+            <app-validation-messages [errorMessages]="errorMessages"></app-validation-messages>
+          </div>
+
+          <div class="form-group text-start mb-4">
+            <div class="checkbox checkbox-fill d-inline">
+              <input type="checkbox" name="checkbox-fill-1" id="checkbox-fill-1" checked="" />
+              <label for="checkbox-fill-1" class="cr"> Save Details</label>
+            </div>
+          </div>
+          <!-- <div class="form-group text-start mb-3">
+            <div class="checkbox checkbox-fill d-inline">
+              <input type="checkbox" name="checkbox-fill-2" id="checkbox-fill-2" />
+              <label for="checkbox-fill-2" class="cr">Send me the <a href="javascript:"> Newsletter</a> weekly.</label>
+            </div>
+          </div> -->
+
+          <button type="submit" class="btn btn-primary shadow-2 mb-4">Sign up</button>
+          <p class="mb-0 text-muted">
+            Already have an account?
+            <a [routerLink]="['/auth/login']"> Log in</a>
+          </p>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

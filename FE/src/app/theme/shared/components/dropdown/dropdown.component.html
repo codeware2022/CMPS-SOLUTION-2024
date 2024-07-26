@@ -1,0 +1,10 @@
+<div class="dropdown">
+    <button class="dropdown-toggle" (click)="toggleDropdown()">
+        {{ firstOptionText }}
+    </button>
+    <ul [class.show]="dropdownOpen" class="dropdown-menu">
+        <li *ngFor="let item of items" (click)="onItemSelect(item)">
+            <img [src]="item.icon" alt="{{ item.name }}" class="icon-image"> {{ item.name }}
+        </li>
+    </ul>
+</div>

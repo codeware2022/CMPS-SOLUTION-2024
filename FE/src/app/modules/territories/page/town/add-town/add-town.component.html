@@ -1,0 +1,41 @@
+
+<div class="row justify-content-center">
+    <div class="col-md-12">
+        <app-card cardTitle="Add Town" [options]="false">
+            <form [formGroup]="townForm">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <app-custom-input label="Town Name"
+                            placeholder="Town Name"
+                            [control]="townForm.controls['townName']"
+                            [isRequired]="true"
+                            (valueChange)="onTownNameEntered($event)">
+                            </app-custom-input>
+                        </div>    
+                        
+                        <div class="form-group">
+                            <app-custom-input label="remarks" 
+                            placeholder="Remarks"
+                            [control]="townForm.controls['remarks']"
+                            (valueChange)="onRemarkEntered($event)">
+                            </app-custom-input>
+                        </div>
+
+                        <div class="form-group m-t-10">
+                            <button class="btn btn-primary" (click)="addTown()" [disabled]="townForm.invalid" >Save</button>
+                            <button class="btn btn-danger" (click)="onReset()">Reset</button>
+                            <button class="btn btn-info" routerLink="/home/territories/view-town">Go to List</button>                            
+                        </div>
+                        <div class="form-group m-t-20" *ngIf="messageStatus; else errorTemplate">
+                            <span class="alert alert-sm alert-success"  *ngIf="message!=null; else  null">{{message}}</span>
+                        </div>
+                        <ng-template #errorTemplate>
+                            <span class="alert alert-sm alert-danger" *ngIf="message!=null; else  null">{{message}}</span>
+                        </ng-template>
+                    </div>
+                </div>
+            </form>
+        </app-card>
+    </div> 
+</div>

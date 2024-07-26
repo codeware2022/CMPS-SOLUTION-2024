@@ -1,0 +1,39 @@
+.table {
+  border: 2px solid rgb(79, 129, 79);
+  width: 100%;
+}
+.table th,
+.table td {
+  border: 1px solid rgb(79, 129, 79);
+  vertical-align: middle;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination-controls button {
+  margin: 0 5px;
+  padding: 5px;
+  border: 2px solid rgb(79, 129, 79);
+  border-radius: 60%;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+.pagination-controls button:hover {
+  background-color: rgb(79, 129, 79);
+  color: white;
+}
+
+.pagination-controls button[disabled] {
+  border-color: grey;
+  color: grey;
+  cursor: not-allowed;
+}

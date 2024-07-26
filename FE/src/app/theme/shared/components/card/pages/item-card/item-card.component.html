@@ -1,0 +1,12 @@
+<div class="card" (click)="openPopup()">
+  <img [src]="item.imageUrl" class="card-img-top fixed-size-image" alt="Product Image">
+  <div class="card-body">
+    <h5 class="card-title">{{ item.name }}</h5>
+    <p class="card-text">Price: ${{ item.price }}</p>
+    <!-- Add more details if needed -->
+  </div>
+</div>
+
+<app-item-card-detail *ngIf="isModalVisible" [product]="item" (close)="closePopup()"></app-item-card-detail>
+
+

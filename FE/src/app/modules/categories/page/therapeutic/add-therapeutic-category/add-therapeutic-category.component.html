@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-sm-12">
+      <app-card
+        cardTitle="Add Therapeutic Category"
+        class="justify-content-center"
+        [options]="false"
+      >
+        <form [formGroup]="TherapeuticCategoryForm" action="javascript:">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <app-custom-input
+                  label="Enter Therapeutic Category Name:"
+                  placeholder="Therapeutic Category Name"
+                  (valueChange)="onTherapeuticCategoryChange($event)"
+                >
+                </app-custom-input>
+              </div>   
+                 
+              <div class="form-group">
+                <app-custom-input
+                  label="Enter Remark:"
+                  placeholder="Remark"
+                  (valueChange)="onRemarksChange($event)"
+                >
+                </app-custom-input>
+              </div>   
+              <div class="form-group mt-3 ml-2">
+                <button class="btn btn-primary ml-3" (click)="AddTherapeuticCategory()" >Submit</button>
+                <button class="btn btn-danger">Reset</button>
+              </div>      
+            </div>  
+          </div>
+        </form>
+      </app-card>
+    </div>
+  </div>
+  

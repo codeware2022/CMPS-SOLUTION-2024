@@ -1,0 +1,37 @@
+<div class="container mt-3">
+  <label for="photo-upload-input" class="form-label"
+    >Upload photos (up to 5):
+    <span *ngIf="isRequired" class="text-danger">*</span></label
+  >
+  <input
+    type="file"
+    id="photo-upload-input"
+    (change)="onFilesSelected($event)"
+    class="form-control"
+    multiple
+    accept="image/*"
+    [disabled]="previewUrls.length >= 5"
+  />
+
+  <div *ngIf="previewUrls.length > 0" class="row mt-3">
+    <div
+      *ngFor="let previewUrl of previewUrls; let i = index"
+      class="col-4 mb-3 position-relative"
+    >
+      <div class="photo-wrapper">
+        <img [src]="previewUrl" alt="Photo Preview" class="img-thumbnail" />
+        <button
+          type="button"
+          class="btn btn-danger remove-photo-btn"
+          (click)="removePhoto(i)"
+        >
+          &#10005;
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+    {{ errorMessage }}
+  </div>
+</div>

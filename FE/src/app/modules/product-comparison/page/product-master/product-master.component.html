@@ -1,0 +1,84 @@
+<div class="page-container">
+  <div class="row justify-content-center">
+    <div class="card-container">
+      <div
+        class="card-item"
+        *ngFor="let category of paginatedCategories; let i = index"
+      >
+        <app-product-category-icon
+          [category]="category"
+          (subCategorySelected)="handleSubCategorySelected($event)"
+          (categoryClicked)="handleCategorySelect($event)"
+          [isDropdownVisible]="visibleDropdownIndex === i"
+          (mouseEnter)="showDropdown(i)"
+          (clickOutside)="hideDropdown(i)"
+        ></app-product-category-icon>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagination-controls">
+    <button
+      (click)="changePage(currentPage - 1)"
+      [disabled]="currentPage === 1"
+    >
+      <<
+    </button>
+    <button
+      *ngFor="let page of [].constructor(totalPages()); let i = index"
+      (click)="changePage(i + 1)"
+    >
+      {{ i + 1 }}
+    </button>
+    <button
+      (click)="changePage(currentPage + 1)"
+      [disabled]="currentPage === totalPages()"
+    >
+      >>
+    </button>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="card-container-product">
+      <div class="card-item-product" *ngFor="let product of paginatedProducts">
+        <app-product-card
+          [item]="product"
+          (productCardClicked)="handleProductCardClicked($event)"
+        ></app-product-card>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagination-controls" *ngIf="filteredProducts.length > 0">
+    <button
+      (click)="changePageProducts(currentPageProducts - 1)"
+      [disabled]="currentPageProducts === 1"
+    >
+      <<
+    </button>
+    <button
+      *ngFor="let page of [].constructor(totalPagesProducts()); let i = index"
+      (click)="changePageProducts(i + 1)"
+    >
+      {{ i + 1 }}
+    </button>
+    <button
+      (click)="changePageProducts(currentPageProducts + 1)"
+      [disabled]="currentPageProducts === totalPagesProducts()"
+    >
+      >>
+    </button>
+  </div>
+
+  <div class="row margin" *ngIf="competitorProducts.length > 0">
+    <app-competitor-products
+      [competitors]="competitorProducts"
+    ></app-competitor-products>
+  </div>
+</div>
+
+<!-- <div>
+  <a [routerLink]="['/home/products/comparison']" class="btn btn-link"
+    >Products Comparision
+  </a>
+</div> -->

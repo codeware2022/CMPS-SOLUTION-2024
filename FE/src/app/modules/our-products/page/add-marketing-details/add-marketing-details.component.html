@@ -1,0 +1,272 @@
+<div class="row">
+  <div class="col-sm-12">
+    <app-card
+      cardTitle="Product Master"
+      class="justify-content-center"
+      [options]="false"
+    >
+      <form [formGroup]="productMarketingForm" action="javascript:">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <app-custom-input
+                label="Product Id:"
+                placeholder="Product Id"
+                [control]="productMarketingForm.controls['productId']"
+                [isRequired]="true"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Product Name:"
+                placeholder="Product Name"
+                [control]="productMarketingForm.controls['productName']"
+                [isRequired]="true"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Brand Name:"
+                placeholder="Brand Name"
+                [control]="productMarketingForm.controls['brandName']"
+                [isRequired]="true"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-date-time-picker
+                label="Updated Date"
+                [isRequired]="true"
+                [control]="productMarketingForm.controls['updatedDate']"
+                (dateSelected)="onUpdatedDateSelected($event)"
+              >
+              </app-date-time-picker>
+            </div>
+
+            <div class="form-group">
+              <app-date-time-picker
+                label="Entered Date"
+                [isRequired]="true"
+                [control]="productMarketingForm.controls['enterDate']"
+                (dateSelected)="onEnterDateSelected($event)"
+              >
+              </app-date-time-picker>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Bonus / Free Issues:"
+                placeholder="Bonus / Free Issues"
+                [control]="productMarketingForm.controls['bonusFreeIssues']"
+                (valueChange)="onBonusFreeIssuesChange($event)"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Market Leader:"
+                placeholder="Market Leader"
+                [control]="productMarketingForm.controls['marketLeader']"
+                [isRequired]="true"
+                (valueChange)="onMarketLeaderChange($event)"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Market Share:"
+                placeholder="Market Share"
+                [control]="productMarketingForm.controls['marketShare']"
+                [isRequired]="true"
+                (valueChange)="onMarketShareChange($event)"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Average Sales Quantity:"
+                placeholder="Average Sales Quantity"
+                [control]="productMarketingForm.controls['avgSalesQty']"
+                [isRequired]="true"
+                (valueChange)="onAvgSalesQtyChange($event)"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Whole Sale Price:"
+                placeholder="Whole Sale Price"
+                [control]="productMarketingForm.controls['wholeSalePrice']"
+                [isRequired]="true"
+                (valueChange)="onWholeSalePriceChange($event)"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Retail Price:"
+                placeholder="Retail Price"
+                [control]="productMarketingForm.controls['retailPrice']"
+                [isRequired]="true"
+                (valueChange)="onRetailPriceChange($event)"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Whole Sale Customer Price:"
+                placeholder="Whole Sale Customer Price"
+                [control]="
+                  productMarketingForm.controls['wholeSaleCustomerPrice']
+                "
+                [isRequired]="true"
+                (valueChange)="onWholeSaleCustomerPriceChange($event)"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Retail Price Patient:"
+                placeholder="Retail Price Patient"
+                [control]="productMarketingForm.controls['retailPricePatient']"
+                [isRequired]="true"
+                (valueChange)="onRetailPricePatientChange($event)"
+              >
+              </app-custom-input>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <app-date-time-picker
+                label="Date Manufactured"
+                [isRequired]="true"
+                [control]="productMarketingForm.controls['dateManufacture']"
+                (dateSelected)="onDateManufactureSelected($event)"
+              >
+              </app-date-time-picker>
+            </div>
+
+            <div class="form-group">
+              <app-date-time-picker
+                label="Date Expire"
+                [isRequired]="true"
+                [control]="productMarketingForm.controls['dateExpire']"
+                (dateSelected)="onDateExpireSelected($event)"
+              >
+              </app-date-time-picker>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Batch No:"
+                placeholder="Batch No"
+                [control]="productMarketingForm.controls['batchNo']"
+                [isRequired]="true"
+                (valueChange)="onBatchNoChange($event)"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="IMS:"
+                placeholder="IMS"
+                [control]="productMarketingForm.controls['IMS']"
+                [isRequired]="true"
+                (valueChange)="onIMSChange($event)"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-typeahead
+                [items]="availability"
+                searchItem="Availability"
+                [isRequired]="true"
+                (selected)="onAvailabilityChange($event)"
+              ></app-typeahead>
+            </div>
+
+            <div class="form-group">
+              <app-photo-upload
+                (photoSelected)="onPhotoSelected($event)"
+              ></app-photo-upload>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Give Aways:"
+                placeholder="Give Aways"
+                [control]="productMarketingForm.controls['giveAways']"
+                (valueChange)="onGiveAwaysChange($event)"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Tie Up Sponsor:"
+                placeholder="Tie Up Sponsor"
+                [control]="productMarketingForm.controls['tieUpSponsor']"
+                (valueChange)="onTieUpSponsorChange($event)"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Remarks:"
+                placeholder="Remarks"
+                [control]="productMarketingForm.controls['remarks']"
+                [isTextArea]="true"
+                (valueChange)="onRemarksChange($event)"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group mt-3 ml-2">
+              <button
+                class="btn btn-primary ml-3"
+                [disabled]="productMarketingForm.invalid"
+                (click)="onSubmit()"
+              >
+                Submit
+              </button>
+              <button class="btn btn-danger" (click)="onReset()">Reset</button>
+              <button class="btn btn-info" routerLink="/home/our-product/view">
+                Go to List
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div
+        *ngIf="successMessage"
+        class="alert alert-success mt-3 text-center"
+        role="alert"
+      >
+        {{ successMessage }}
+      </div>
+      <div
+        *ngIf="errorMessage"
+        class="col-3 alert alert-danger mt-3 text-center"
+        role="alert"
+      >
+        {{ errorMessage }}
+      </div>
+    </app-card>
+  </div>
+</div>

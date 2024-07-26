@@ -1,0 +1,102 @@
+/* Custom CSS for styling the dropdown */
+.input-group {
+  position: relative;
+  width: 100%;
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+/* Styling for the search input */
+.input-group input {
+  border-radius: 0;
+  border-width: 0;
+  border-bottom: 1px solid #ccc;
+  padding: 8px 12px;
+}
+
+/* Styling for the dropdown */
+.select-dropdown {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgb(79, 129, 79);
+}
+
+.select-dropdown option {
+  padding: 8px 12px;
+}
+
+.select-dropdown option:hover {
+  background-color: #f0f0f0;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+
+.card-item {
+  width: 12%;
+  /* Each card takes 50% of the container width */
+  box-sizing: border-box;
+  /* Including padding and border in the width */
+  // padding: 1px;
+  /* Adjust as needed */
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination-controls button {
+  margin: 0 5px;
+  padding: 5px;
+  border: 2px solid rgb(79, 129, 79);
+  border-radius: 50%;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+.pagination-controls button:hover {
+  background-color: rgb(79, 129, 79);
+  color: white;
+}
+
+.pagination-controls button[disabled] {
+  border-color: grey;
+  color: grey;
+  cursor: not-allowed;
+}
+
+.card-container-product {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+
+.card-item-product {
+  width: 20%;
+  //height: 10%;
+
+  box-sizing: border-box;
+  padding: 2px;
+}
+
+.page-container {
+  border: 2px solid rgb(79, 129, 79);
+  padding: 20px;
+}
+
+.margin{
+  margin-top: 20px;
+}

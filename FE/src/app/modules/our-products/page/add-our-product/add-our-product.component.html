@@ -1,0 +1,198 @@
+<div class="row">
+  <div class="col-sm-12">
+    <app-card
+      cardTitle="Product Master"
+      class="justify-content-center"
+      [options]="false"
+    >
+      <form [formGroup]="productsForm" action="javascript:">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <app-typeahead
+                [items]="productBrands"
+                searchItem="Brand Name"
+                (selected)="onBrandNameSelected($event)"
+                [control]="productsForm.controls['brandName']"
+                [isRequired]="true"
+              ></app-typeahead>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Enter product code:"
+                placeholder="Product code"
+                (valueChange)="onProductCodeChange($event)"
+                [control]="productsForm.controls['productCode']"
+                [isRequired]="true"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Enter product name:"
+                placeholder="Product name"
+                (valueChange)="onProductNameChange($event)"
+                [control]="productsForm.controls['productName']"
+                [isRequired]="true"
+              >
+              </app-custom-input>
+            </div>
+
+            <!-- <div
+              class="form-group"
+              *ngIf="productList && productList.length > 0"
+            >
+              <app-typeahead
+                [items]="productList"
+                searchItem="Product"
+                (selected)="onProductSelected($event)"
+                [control]="productsForm.controls['productMasterName']"
+                [isRequired]="true"
+              ></app-typeahead>
+            </div> -->
+
+            <div class="form-group">
+              <app-typeahead
+                [items]="genericNameList"
+                searchItem="Generic Name"
+                (selected)="onGenericNameSelected($event)"
+                [control]="productsForm.controls['genericName']"
+                [isRequired]="true"
+              ></app-typeahead>
+            </div>
+
+            <div class="form-group">
+              <app-typeahead
+                [items]="manufacturerList"
+                searchItem="Manufacturer"
+                (selected)="onManufacturerSelected($event)"
+              ></app-typeahead>
+            </div>
+
+            <div class="form-group">
+              <app-typeahead
+                [items]="dosageFormList"
+                searchItem="Dorsage Form"
+                (selected)="onDosageFormSelect($event)"
+              ></app-typeahead>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Enter product strength : 5ml/5mg..."
+                placeholder="composition strength"
+                (valueChange)="onCompositionEntered($event)"
+                [control]="productsForm.controls['composition']"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Enter SWOT:"
+                placeholder="SWOT"
+                (valueChange)="onSwotEntered($event)"
+                [control]="productsForm.controls['swot']"
+                [isTextArea]="true"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-typeahead
+                [items]="disdtributorList"
+                searchItem="Distributor"
+                (selected)="onDistributerSelected($event)"
+              ></app-typeahead>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <app-custom-input
+                label="Enter Pack Size:"
+                placeholder="Pack Size"
+                (valueChange)="onPackSizeEntered($event)"
+                [control]="productsForm.controls['packSize']"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Enter IMS value:"
+                placeholder="International Medical Statistics value"
+                (valueChange)="onPackSizeEntered($event)"
+                [control]="productsForm.controls['packSize']"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Add Basic Flavors:"
+                placeholder="Flavor"
+                (valueChange)="onFlavorEntered($event)"
+                [control]="productsForm.controls['flavor']"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <!-- <app-custom-input
+                label="Enter color:"
+                placeholder="Color"
+                (valueChange)="onColorEntered($event)"
+                [control]="productsForm.controls['color']"
+              >
+              </app-custom-input> -->
+
+              <app-color-picker (colorChange)="onColorChange($event)">
+              </app-color-picker>
+            </div>
+
+            <div class="form-group">
+              <app-ingredients-table
+                (itemAdded)="onIngredientAdded($event)"
+              ></app-ingredients-table>
+            </div>
+            <!-- <div class="form-group">
+              <app-photo-upload></app-photo-upload>
+            </div> -->
+            <div class="form-group mt-3 ml-2">
+              <button
+                [disabled]="productsForm.invalid"
+                class="btn btn-primary ml-3"
+                (click)="onSubmit()"
+              >
+                Submit
+              </button>
+              <button class="btn btn-danger" (click)="onReset()">Reset</button>
+              <button
+                class="btn btn-info"
+                routerLink="/home/our-product/view"
+              >
+                Go to List
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div
+        *ngIf="successMessage"
+        class="alert alert-success mt-3 text-center"
+        role="alert"
+      >
+        {{ successMessage }}
+      </div>
+      <div
+        *ngIf="errorMessage"
+        class="col-3 alert alert-danger mt-3 text-center"
+        role="alert"
+      >
+        {{ errorMessage }}
+      </div>
+    </app-card>
+  </div>
+</div>

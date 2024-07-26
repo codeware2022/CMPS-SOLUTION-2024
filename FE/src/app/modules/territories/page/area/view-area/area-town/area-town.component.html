@@ -1,0 +1,35 @@
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="townList" tabindex="-1" aria-labelledby="townList" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="townList">Towns For Area</h5>
+          <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+        </div>
+        <div class="modal-body">
+            <table class="table table-sm table-hover">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Town Name</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of Towns">
+                  <td class="mt-0 mb-0">{{item.id}}</td>
+                  <td>{{item.townName}}</td>   
+                  <td><button type="button" class="btn btn-danger btn-sm">X</button></td>            
+                </tr>
+              </tbody>              
+            </table>          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" (click)="closeModal()">Close</button>
+          <button type="button" class="btn btn-primary btn-sm">Save changes</button>          
+        </div>
+      </div>
+    </div>
+  </div>

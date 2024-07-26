@@ -1,0 +1,66 @@
+.photo-upload-container {
+  position: relative;
+  width: 300px;
+  margin: 20px auto;
+  font-family: "Arial", sans-serif;
+}
+
+.photo-upload-label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+}
+
+.photo-upload-input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.3s;
+  outline: none;
+}
+
+.photo-upload-input:hover,
+.photo-upload-input:focus {
+  border-color: rgb(79, 129, 79);
+}
+
+.photo-preview {
+  margin-top: 20px;
+}
+
+.preview-img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.error-message {
+  margin-top: 10px;
+  color: red;
+  font-size: 14px;
+}
+
+.photo-wrapper {
+  position: relative;
+}
+
+.remove-photo-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-size: 14px;
+  line-height: 14px;
+  background-color:transparent;
+  color: rgb(151, 12, 12);
+  border: 2px solid rgb(151, 12, 12);
+  cursor: pointer;
+}
+

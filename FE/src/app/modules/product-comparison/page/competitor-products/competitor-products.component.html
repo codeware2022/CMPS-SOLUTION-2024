@@ -1,0 +1,55 @@
+<div *ngIf="competitors && competitors.length">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Competitor Name</th>
+        <th scope="col">Sales Distribution</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <ul>
+            <li *ngFor="let competitor of paginatedCompetitors">
+              <a
+                [routerLink]="['/home/products/comparison']"
+                class="btn btn-link"
+                >{{ competitor.name }}
+              </a>
+            </li>
+
+            <div class="pagination-controls">
+              <button (click)="prevPage()" [disabled]="currentPage === 0">
+                <<
+              </button>
+              <ng-container
+                *ngFor="let page of [].constructor(totalPages); let i = index"
+              >
+                <button
+                  (click)="goToPage(i)"
+                  [class.active]="i === currentPage"
+                >
+                  {{ i + 1 }}
+                </button>
+              </ng-container>
+              <button
+                (click)="nextPage()"
+                [disabled]="currentPage >= totalPages - 1"
+              >
+                >>
+              </button>
+            </div>
+          </ul>
+        </td>
+        <td>
+          <apx-chart
+            [series]="chartOptions.series"
+            [chart]="chartOptions.chart"
+            [labels]="chartOptions.labels"
+            [responsive]="chartOptions.responsive"
+          ></apx-chart>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

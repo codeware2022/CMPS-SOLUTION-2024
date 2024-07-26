@@ -1,0 +1,80 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12 col-sm-6 mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search products..."
+        [(ngModel)]="searchTerm"
+      />
+    </div>
+  </div>
+  <div class="table-responsive table-wrapper">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <!-- <th>Product Code</th> -->
+          <th>Product Name</th>
+          <th>Category</th>
+          <!-- <th>Subcategory</th> -->
+          <!-- <th>Generic Name</th>
+          <th>Manufacturer</th>
+          <th>Dosage Form</th> -->
+          <th>Ingredient</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of filteredProducts">
+          <!-- <td>{{ product.productCode }}</td> -->
+          <td>{{ product.productName }}</td>
+          <td>{{ product.category }}</td>
+          <!-- <td>{{ product.subcategory }}</td> -->
+          <!-- <td>{{ product.genericName }}</td>
+          <td>{{ product.manufacturer }}</td>
+          <td>{{ product.dosageForm }}</td> -->
+          <td>{{ formatIngredients(product) }}</td>
+          <td>
+            <!-- <button class="btn btn-primary" (click)="addRandomProduct(product)">
+              <span><i class="fas fa-plus"></i> Marketing Details</span>
+            </button> -->
+            <a
+              class="btn btn-dark"
+              (click)="addRandomProduct(product)"
+              title="Marketing Details"
+            >
+              <span
+                ><i class="fa fa-address-card" aria-hidden="true"></i
+              ></span>
+            </a>
+          </td>
+          <td>
+            <a
+              class="btn btn-dark"
+              [routerLink]="[
+                '/home/our-product/our-product-profile',
+                product.id
+              ]"
+              title="Product Profile"
+            >
+              <span
+                ><i class="fa fa-file" aria-hidden="true"></i
+              ></span>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+    <div class="col-md-2 text-right p-0 m-0">
+      <button class="btn btn-sm btn-dark" routerLink="/home/our-product/add">
+        <i class="feather icon-arrow-left"></i> Back
+      </button>
+    </div>
+    <pagination-controls
+      class="col-md-6"
+      (pageChange)="page = $event"
+    ></pagination-controls>
+  </div>
+</div>

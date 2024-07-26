@@ -1,0 +1,16 @@
+<!-- <div class="popup" (click)="closePopup()">
+    <div class="popup-content">
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.description }}</p>
+        <button (click)="closePopup()">Close</button>
+    </div>
+</div> -->
+
+<div class="modal-container" *ngIf="isVisible">
+    <div class="modal-content">
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.description }}</p>
+        <button (click)="closeModal()">Close</button>
+        <!-- Add your modal content here -->
+    </div>
+</div>

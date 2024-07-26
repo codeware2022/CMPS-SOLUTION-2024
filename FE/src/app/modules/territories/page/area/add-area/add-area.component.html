@@ -1,0 +1,149 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+        <app-card cardTitle="Area Information" [options]="false">
+            <div class="col-md-12">
+                <form [formGroup]="areaForm">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <app-custom-input label="Enter Area Name: " 
+                                    placeholder="Area Name"
+                                    [control]="areaForm.controls['areaName']" 
+                                    [isRequired]="true"
+                                    (valueChange)="onAreaNameEntered($event)">
+                                </app-custom-input>
+                            </div>
+
+                            <div class="form-group">
+                                <app-custom-input label="Enter Population: " placeholder="Population"
+                                    [control]="areaForm.controls['population']"
+                                    (valueChange)="onPopulationEntered($event)">
+                                </app-custom-input>
+                            </div>
+
+                            <div class="form-group">
+                                <app-custom-input label="Enter Income: " placeholder="Income"
+                                    [control]="areaForm.controls['income']" (valueChange)="onIncomeEntered($event)">
+                                </app-custom-input>
+                            </div>
+
+                            <div class="form-group">
+                                <app-custom-input label="Enter No of Doctors: " placeholder="No of Doctors"
+                                    [control]="areaForm.controls['noOfDoctors']"
+                                    (valueChange)="onNoOfDoctorsEntered($event)">
+                                </app-custom-input>
+                            </div>
+
+                            <div class="form-group">
+                                <app-custom-input 
+                                    label="Enter No of Chemist: " 
+                                    placeholder="No of Chemist"
+                                    [control]="areaForm.controls['noOfChemist']"
+                                    (valueChange)="onNoOfChemistEntered($event)">
+                                </app-custom-input>
+                            </div>
+                            <div class="form-group">
+                                <app-custom-input label="Enter Remarks: " 
+                                    placeholder="Remarks"
+                                    [control]="areaForm.controls['remarks']" 
+                                    (valueChange)="onRemarksEntered($event)">
+                                </app-custom-input>
+                            </div>
+                        </div>  
+                        
+                        <div class="col-md-6">
+                                        
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <app-custom-input label="Gov Hospital:" 
+                                        placeholder="No Of Gov Hospital"
+                                        [control]="areaForm.controls['noOfGovHospitals']"
+                                        (valueChange)="onNoOfGovHospitalsEntered($event)">
+                                    </app-custom-input>   
+                                    </div>
+                                    <div class="col-md-4">
+                                    <app-custom-input label="Pvt Hospital:" 
+                                        placeholder="No Of Pvt.Hospital"
+                                        [control]="areaForm.controls['noOfpvtHospitals']"
+                                        (valueChange)="onNoOfpvtHospitalsEntered($event)">
+                                    </app-custom-input>  
+                                    </div>
+                                    <div class="col-md-4">
+                                    <app-custom-input label="Semi Hospital: " 
+                                        placeholder="No Of Semi.Hospitals"
+                                        [control]="areaForm.controls['noOfsemiGovHospitals']" 
+                                        (valueChange)="noOfSemiGovHospitalsEntered($event)">
+                                    </app-custom-input>
+                                    </div>
+                                </div>                               
+                            </div>  
+
+                            <div class="form-group">
+                                <div class="row">                                    
+                                    <div class="col-md-10">
+                                        <div class="form-group">
+                                            <app-typeahead
+                                                [items]="townListForTypeahead"
+                                                searchItem="townId"
+                                                (selected)="onTownSelected($event)"  
+                                                                                            
+                                              >                                                
+                                            </app-typeahead>                                         
+                                        </div>     
+                                                                 
+                                    </div>
+                                    <div class="col-md-2 p-t-35 m-l-0 p-l-0">
+                                        <div class="form-group">
+                                            <button class="btn btn-primary" (click)="addTownToList()">+</button>
+                                        </div>                                        
+                                    </div>
+                                    <div class="text-danger">{{townErrorMsg}}</div>    
+                                </div>       
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Id</th>
+                                                    <th>Town</th>
+                                                    <th></th>
+                                                </tr>
+                                                <tr *ngFor="let item of paginationTowns">
+                                                    <td>{{item.id}}</td>
+                                                    <td>{{item.townName}}</td>
+                                                    <td><button type="button" (click)="removeTownById(item.townId)" class="btn btn-icon btn-danger btn-icon-xs" ><i class="feather icon-x"></i></button></td>
+                                                </tr>
+                                            </thead>
+                                        </table>
+
+                                        <div class="d-flex justify-content-between p-2">
+                                            <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+                                                (pageChange)="pagination()">
+                                            </ngb-pagination>
+                            
+                                            <select class="form-select" style="width: auto" 
+                                                [(ngModel)]="pageSize"
+                                                (ngModelChange)="pagination()"  [ngModelOptions]="{standalone: true}">
+                                                <option [ngValue]="2">2 items per page</option>
+                                                <option [ngValue]="4">4 items per page</option>
+                                                <option [ngValue]="6">6 items per page</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group m-t-10">
+                                <button class="btn btn-primary" (click)="addArea()">Save</button>
+                                <button class="btn btn-danger">Reset</button>
+                                <button class="btn btn-link">Go to List</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </app-card>
+    </div>
+</div>

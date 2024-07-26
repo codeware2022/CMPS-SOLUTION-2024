@@ -1,0 +1,14 @@
+<div class="card-container">
+  <div class="card fixed-size-card custom-card" [routerLink]="['/home/our-product/our-product-profile']">
+    <img
+      [src]="item.imageUrl"
+      class="card-img-top fixed-size-image"
+      alt="Product Image"     
+    />
+    <div class="card-body" >     
+      <h5 class="card-title">{{ item.name }}</h5>
+      <p class="card-text" >Price: ${{ item.price }}</p>       
+    </div>
+  </div>
+  <!-- Repeat the above block for additional cards -->
+</div>

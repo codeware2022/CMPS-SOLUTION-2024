@@ -1,0 +1,44 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12 col-sm-6 mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search brands..."
+        [(ngModel)]="searchTerm"
+      />
+    </div>
+  </div>
+  <div class="table-responsive table-wrapper">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Brand Id</th>
+          <th>Brand Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let brand of filteredBrands
+              | paginate: { itemsPerPage: 5, currentPage: page }
+          "
+        >
+          <td>{{ brand.id }}</td>
+          <td>{{ brand.name }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+    <div class="col-md-2 text-right p-0 m-0">
+      <button
+        class="btn btn-sm btn-dark"
+        routerLink="/home/categories/add-product-master"
+      >
+        <i class="feather icon-arrow-left"></i> Back
+      </button>
+    </div>
+    <pagination-controls class="col-md-6" (pageChange)="page = $event"></pagination-controls>
+  </div>
+</div>

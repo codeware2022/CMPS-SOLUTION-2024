@@ -1,0 +1,93 @@
+<div class="row">
+  <div class="col-sm-12">
+    <app-card
+      cardTitle="Competitor Products"
+      class="justify-content-center"
+      [options]="false"
+    >
+      <form [formGroup]="comProductForm" action="javascript:">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <app-typeahead
+                [items]="brandNames"
+                searchItem="Brand Name"
+                (selected)="onBrandNameSelected($event)"
+                [control]="comProductForm.controls['brandName']"
+                [isRequired]="true"
+              ></app-typeahead>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Enter Pack Size:"
+                placeholder="Pack Size"
+                (valueChange)="onPackSizeEnter($event)"
+                [control]="comProductForm.controls['packSize']"
+                [isRequired]="true"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Enter Competitor Whole Sale Price:"
+                placeholder="Whole Sale Price"
+                (valueChange)="onWSPEnter($event)"
+                [control]="comProductForm.controls['wholeSalePrice']"
+                [isRequired]="true"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Enter Retail Price:"
+                placeholder="Retail Price"
+                (valueChange)="onRetailPriceEnter($event)"
+                [control]="comProductForm.controls['retailPrice']"
+                [isRequired]="true"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Enter Bonus / Free Issues:"
+                placeholder="Bonus / Free Issues"
+                (valueChange)="onBonusFreeIssuesEnter($event)"
+                [control]="comProductForm.controls['bonusFreeIssues']"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Enter Batch No:"
+                placeholder="Batch No"
+                (valueChange)="onBatchNoEnter($event)"
+                [control]="comProductForm.controls['batchNo']"
+                [isRequired]="true"
+              >
+              </app-custom-input>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <app-photo-upload></app-photo-upload>
+            </div>
+            <div class="form-group">
+              <app-date-time-picker label="Date of Manufacture">
+              </app-date-time-picker>
+            </div>
+            <div class="form-group">
+              <app-date-time-picker label="Date of Expiry">
+              </app-date-time-picker>
+            </div>
+          </div>
+        </div>
+      </form>
+    </app-card>
+  </div>
+</div>

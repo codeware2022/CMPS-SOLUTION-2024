@@ -1,0 +1,9 @@
+<div>
+	<input type="text" [(ngModel)]="searchTerm" placeholder="Search options" />
+	<ul>
+	  <li *ngFor="let option of options | filter: searchTerm">
+		<input type="checkbox" [checked]="selectedOptions.includes(option)" (change)="updateSelection(option)" />
+		{{ option }}
+	  </li>
+	</ul>
+  </div>

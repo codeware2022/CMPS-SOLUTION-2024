@@ -1,0 +1,29 @@
+.input-container {
+  position: relative;
+  width: 300px;
+  margin: 20px auto;
+  font-family: "Arial", sans-serif;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+  outline: none;
+}
+
+.input-field:focus {
+  border-color: rgb(79, 129, 79);
+}
